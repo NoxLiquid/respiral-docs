@@ -2,15 +2,6 @@
 
 По какому шаблону описывать департаменты и профессии.
 
-## Почему шаблон space-wizards подходит
-
-В [`space-wizards/docs`](https://github.com/space-wizards/docs) (тоже mdBook) есть готовый
-**`department-design-template.md`** с секциями:
-`Concept → Player Story → Design Pillars → Objectives → Progression → Flow → Mechanics`.
-Это ровно тот срез, которого не хватает Respiral: у нас есть *реализация* (YAML), но нет *замысла*
-(зачем профессия, как меняется её опыт за раунд, чем она уникальна). Берём их шаблон как каркас и
-добавляем Respiral-специфику (навык-гейты, станки, цепочки материалов).
-
 ## Структура файлов
 
 ```text
