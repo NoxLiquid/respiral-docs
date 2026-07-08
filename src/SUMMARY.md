@@ -81,9 +81,17 @@
 - [Костровая жаровня](./lathe/hotplate.md)
 - [Связующий магический шар](./lathe/connecting-magic-ball.md)
 
+# Постройка
+
+- [Обзор](./construction/overview.md)
+
 # Экономика
 
 - [Ценообразование](./economy/pricing.md)
+
+# Износ
+
+- [Обзор](./wear/overview.md)
 
 # Мета
 
