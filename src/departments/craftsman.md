@@ -1,7 +1,7 @@
 # Городские (Craftsman)
 > «Пока лорды делят земли, кузня не остывает.»
 
-Заполненный пример по [шаблону департамента](../professions/design-plan.md#шаблон-страницы-департамента).
+Заполненный пример по [шаблону департамента](../professions/design-plan.md).
 
 ## Концепция
 
@@ -66,5 +66,5 @@
 
 - Прототипы: `Roles/Jobs/Craftsman/city.yml`, `Skill/skill.yml`, `Skill/book.yml`,
   `Structures/Machine/{lathe,alchem_table,reagent_grinder,hotplate}.yml`, `Recipe/packs.yml`.
-- **Дыры:** профессия не выдаёт навык/книгу (дыра №1 в [Обзоре](../professions/overview.md#обнаруженные-дыры-и-риски));
+- **Дыры:** профессия не выдаёт навык/книгу (дыра №1 в [Обзоре](../professions/overview.md));
   ювелир — пустой пак и нет роли; Инженер/Корчмарь/Горожанин без механики; Измельчитель/Жаровня без гейта.
