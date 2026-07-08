@@ -10,3 +10,7 @@
 # Департаменты
 
 - [Городские (Craftsman)](./departments/craftsman.md)
+
+# Мета
+
+- [Правила публикации](./contributing.md)

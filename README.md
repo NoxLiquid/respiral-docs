@@ -1,9 +1,8 @@
 # respiral-docs
 
-Дизайн-документация контент-пака **Respiral** для Space Station 14.
+Дизайн-документация контент-пака проекта **Respiral** для Space Station 14.
 Статический сайт на [mdBook](https://rust-lang.github.io/mdBook/), публикуется на GitHub Pages.
 
-Игровой репозиторий: [ss14-respiral](https://github.com/NoxLiquid/ss14-respiral) *(поправьте ссылку при необходимости)*.
 
 ## Локальная сборка
 

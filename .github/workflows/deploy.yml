@@ -25,19 +25,22 @@ jobs:
       - name: Install mdBook + plugins
         uses: taiki-e/install-action@v2
         with:
-          tool: mdbook,mdbook-mermaid
+          tool: mdbook,mdbook-mermaid,mdbook-linkcheck
 
       - name: Setup mermaid assets
         run: mdbook-mermaid install .
 
-      - uses: actions/configure-pages@v5
-
+      # Сборка + проверка ссылок идут до configure-pages, чтобы результат сборки
+      # был виден даже если GitHub Pages ещё не включён в настройках репозитория.
       - name: Build book
         run: mdbook build
 
+      - uses: actions/configure-pages@v5
+
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: book
+          # linkcheck-рендерер переносит HTML в book/html
+          path: book/html
 
   deploy:
     needs: build

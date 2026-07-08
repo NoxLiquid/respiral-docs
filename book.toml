@@ -25,3 +25,10 @@ level = 1
 
 [output.html.playground]
 runnable = false
+
+# Проверка ссылок. linkcheck — отдельный рендерер: при его наличии HTML собирается
+# в book/html (это учтено в пути upload-pages-artifact в deploy.yml).
+[output.linkcheck]
+follow-web-links = false   # внешние http-ссылки не проверяем (флаки-сеть)
+# Битые ссылки на файлы = ошибка (роняют сборку) при политике по умолчанию.
+# warning-policy не ужесточаем: mdBook-генерируемые кириллические якоря иначе дают ложные падения.
