@@ -1,0 +1,27 @@
+[book]
+title = "Respiral — Дизайн-документация"
+authors = ["Respiral Contributors"]
+description = "Геймдизайн-документация контент-пака Respiral для Space Station 14."
+language = "ru"
+src = "src"
+
+[build]
+build-dir = "book"
+
+[output.html]
+default-theme = "navy"
+preferred-dark-theme = "navy"
+git-repository-url = "https://github.com/NoxLiquid/respiral-docs"
+edit-url-template = "https://github.com/NoxLiquid/respiral-docs/edit/main/{path}"
+mathjax-support = false
+
+[output.html.fold]
+enable = true
+level = 1
+
+# Диаграммы mermaid. Ассеты (mermaid.min.js / mermaid-init.js) и запись
+# [preprocessor.mermaid] добавляются командой `mdbook-mermaid install .`
+# (выполняется в CI перед сборкой — см. .github/workflows/deploy.yml).
+
+[output.html.playground]
+runnable = false
