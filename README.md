@@ -1,28 +1,20 @@
-# respiral-docs
+# Средневековье — гайдбук
 
-Дизайн-документация контент-пака проекта **Respiral** для Space Station 14.
-Статический сайт на [mdBook](https://rust-lang.github.io/mdBook/), публикуется на GitHub Pages.
+Сайт средневековой сборки Space Station 14: рендер карты «Дикие земли» по всем трём уровням высоты,
+полный игровой гайдбук и правила сервера.
 
+Сайт: https://noxliquid.github.io/respiral-docs/
 
-## Локальная сборка
+## Устройство
 
-```shell
-cargo install mdbook mdbook-mermaid   # один раз
-mdbook-mermaid install .              # один раз: ассеты для диаграмм
-mdbook serve --open                   # локальный предпросмотр на http://localhost:3000
-```
+- `site/index.html` — одностраничный сайт: вкладки «Мир», «Гайдбук», «Правила».
+- `site/assets/` — рендеры карты.
 
-`mdbook build` кладёт готовый сайт в `book/` (в `.gitignore`).
+Страница генерируется из игрового репозитория: тексты гайдбука и правил берутся из
+`Resources/ServerInfo/Guidebook/_Medieval/`, иконки предметов — из игровых спрайтов, рендеры карты — из
+файлов карты генератором `Tools/_Medieval/mapgen`. Править сайт вручную не нужно: после изменений в
+гайдбуке страница пересобирается и заменяется целиком.
 
 ## Публикация
 
-Push в `main` запускает workflow `.github/workflows/deploy.yml`, который собирает
-книгу и деплоит её на GitHub Pages.
-
-> **Разовая настройка на GitHub:** *Settings → Pages → Build and deployment → Source = GitHub Actions.*
-
-## Структура
-
-- `src/SUMMARY.md` — оглавление (сайдбар строится строго по нему).
-- `src/professions/` — обзор профессий и план диздока.
-- `src/departments/` — страницы департаментов по шаблону.
+Push в `main` запускает `.github/workflows/deploy.yml`, который выкладывает папку `site/` на GitHub Pages.

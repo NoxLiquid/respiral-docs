@@ -1,57 +1,35 @@
-name: Deploy docs to GitHub Pages
+name: Deploy site to GitHub Pages
 
 on:
   push:
     branches: [ main ]
   workflow_dispatch:
 
-# Разрешения для деплоя на Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Один деплой за раз; не отменять уже идущий
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Install mdBook + plugins
-        uses: taiki-e/install-action@v2
-        with:
-          # Пины совместимой тройки (как в проде space-wizards/docs).
-          # mdbook-linkcheck/mermaid ломаются с более новым mdbook → фиксируем версии.
-          tool: mdbook@0.4.36,mdbook-mermaid@0.12.6,mdbook-linkcheck@0.7.7
-
-      - name: Setup mermaid assets
-        run: mdbook-mermaid install .
-
-      # Сборка + проверка ссылок идут до configure-pages, чтобы результат сборки
-      # был виден даже если GitHub Pages ещё не включён в настройках репозитория.
-      - name: Build book
-        run: mdbook build
-
-      - uses: actions/configure-pages@v5
-        with:
-          enablement: true   # включить Pages, если ещё не включён
-
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          # linkcheck-рендерер переносит HTML в book/html
-          path: book/html
-
   deploy:
-    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
       - id: deployment
         uses: actions/deploy-pages@v4
